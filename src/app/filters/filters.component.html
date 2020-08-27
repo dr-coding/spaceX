@@ -1,0 +1,20 @@
+<div class="filter-section">
+    <b>{{title}}</b>
+    <ng-container *ngIf="filterObj.length>0"><div *ngFor="let filters of filterObj">
+            <div class="filter-title center">{{filters.filterTitle}}</div>
+            <div class="width_100" *ngFor="let filter of filters.filters;let even = even;let i = index">
+            <ng-container *ngIf="even ">
+                <ng-container *ngIf="(i+1)< filters.filters?.length;else onlyOne">
+                    <div class="width_50"><p class="butn butn_green center"[ngClass]="{selected_filter: filters.activeFilter === filters.filters[i]}" (click)="filterProgList(filters.filterTitle, filters.filters[i])">{{filters.filters[i]}}</p></div>
+                    <div class="width_50"><p class="butn butn_green center" [ngClass]="{selected_filter: filters.activeFilter === filters.filters[i+1]}"  (click)="filterProgList(filters.filterTitle, filters.filters[i+1])">{{filters.filters[i+1]}}</p></div>
+                    {{active}}
+                </ng-container>
+                <ng-template #onlyOne>
+                    <div class="width_50" ><p class="butn butn_green center" [ngClass]="{selected_filter: filters.activeFilter === filters.filters[i]}" (click)="filterProgList(filters.filterTitle, filters.filters[i])">{{filters.filters[i]}}</p></div>
+                </ng-template>
+            </ng-container>
+        </div>
+            
+        </div>
+    </ng-container>
+</div>

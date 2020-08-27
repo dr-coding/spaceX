@@ -1,0 +1,16 @@
+.grey-back{
+    background-color:#dde4e9;
+    padding:10px;
+    max-width:1440px;
+    margin:auto;
+}
+
+.container-fluid{
+    display:block;
+}
+
+@media screen and (min-width:700px){
+    .container-fluid{
+        display: flex;
+    }
+}

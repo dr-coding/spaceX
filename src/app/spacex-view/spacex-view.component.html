@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="card" *ngFor="let prog of (spaceProgList | async)">
+        <div class="card_header"><img src="{{prog.links.mission_patch_small}}">
+        <p>{{prog.mission_name +'#'+prog.flight_number}}</p></div>
+        <div class="card_content">
+            <div>
+                <label>Mission Ids:</label>
+                <ul *ngFor="let missionId of prog.mission_id">
+                    <li>{{missionId}}</li>
+                </ul>
+            </div>
+            <div class="padding_bottom_5">
+                <div class="width_50"><label>Launch Year:</label></div> <div class="width_50">{{prog.launch_year}}</div>
+            </div>
+            <div class="padding_bottom_5">
+                <div class="width_50"><label>Successful Launch:</label></div> <div class="width_50">{{prog.launch_success}}</div>
+            </div>
+            <div class="padding_bottom_5">
+                <div class="width_50"><label>Successful Landing:</label></div> <div class="width_50">{{prog?.rocket?.first_stage?.cores[0]?.land_success}}</div>
+            </div>
+
+        </div>
+    </div>
+</div>
